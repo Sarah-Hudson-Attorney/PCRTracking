@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Legal Operations & Privacy Tech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #f7fafc;
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #764ba2;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero .tagline {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.1em;
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #764ba2;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #764ba2;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #1a202c;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 1.2em;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Case Studies Grid */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .case-study-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        
+        .case-study-header {
+            background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+            padding: 30px;
+            color: white;
+        }
+        
+        .case-study-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 15px;
+        }
+        
+        .case-study-header h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .case-study-header p {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        
+        .case-study-body {
+            padding: 30px;
+        }
+        
+        .case-study-stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            flex: 1;
+            min-width: 100px;
+        }
+        
+        .stat-number {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #764ba2;
+        }
+        
+        .stat-label {
+            font-size: 0.85em;
+            color: #718096;
+        }
+        
+        .case-study-description {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .case-study-footer {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .tech-tag {
+            background: #edf2f7;
+            color: #764ba2;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .skill-category h3 {
+            color: #764ba2;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 10px 0;
+            color: #4a5568;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* About Section */
+        .about-content {
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-content p {
+            color: #4a5568;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        
+        .interests {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .interest-tag {
+            background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .hero .tagline {
+                font-size: 1.1em;
+            }
+            
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-content {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Your Name</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Building Better Legal Systems</h1>
+        <p class="tagline">Immigration Resentencing Resource Attorney</p>
+        <p class="subtitle">Bridging law and technology to create efficient, data-driven solutions for legal practice management, compliance, and privacy.</p>
+        <div class="cta-buttons">
+            <a href="#work" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="work" class="container">
+        <h2 class="section-title">Featured Work</h2>
+        <p class="section-subtitle">Real-world projects solving complex problems at the intersection of law and technology</p>
+        
+        <div class="case-studies-grid">
+            <!-- Case Study 1 -->
+            <a href="case-study-practice-management.html" class="case-study-card">
+                <div class="case-study-header">
+                    <span class="case-study-tag">Legal Operations</span>
+                    <h3>Custom Practice Management System</h3>
+                    <p>No-code solution for immigration and criminal defense practice</p>
+                </div>
+                <div class="case-study-body">
+                    <div class="case-study-stats">
+                        <div class="stat">
+                            <div class="stat-number">90%</div>
+                            <div class="stat-label">Time Saved</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">$4.2K</div>
+                            <div class="stat-label">Annual Savings</div>
+                        </div>
+                    </div>
+                    <p class="case-study-description">
+                        Built a comprehensive practice management system that transformed grant reporting from hours of manual work to 30-minute automated reports, enabling data-driven decisions and ensuring compliance.
+                    </p>
+                    <div class="case-study-footer">
+                        <span class="tech-tag">Airtable</span>
+                        <span class="tech-tag">JotForm</span>
+                        <span class="tech-tag">Clockify API</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Case Study 2 - Placeholder -->
+            <div class="case-study-card" style="opacity: 0.6;">
+                <div class="case-study-header">
+                    <span class="case-study-tag">Data Privacy</span>
+                    <h3>Coming Soon</h3>
+                    <p>Data anonymization & compliance system</p>
+                </div>
+                <div class="case-study-body">
+                    <p class="case-study-description">
+                        Documentation in progress...
+                    </p>
+                </div>
+            </div>
+
+            <!-- Case Study 3 - Placeholder -->
+            <div class="case-study-card" style="opacity: 0.6;">
+                <div class="case-study-header">
+                    <span class="case-study-tag">Grant Compliance</span>
+                    <h3>Coming Soon</h3>
+                    <p>Automated grant reporting dashboard</p>
+                </div>
+                <div class="case-study-body">
+                    <p class="case-study-description">
+                        Documentation in progress...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="container">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <p class="section-subtitle">Combining legal expertise with technical implementation</p>
+        
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>No-Code Development</h3>
+                <ul class="skill-list">
+                    <li>Airtable (Database Design & Automation)</li>
+                    <li>JotForm (Client Intake Portals)</li>
+                    <li>Zapier / API Integrations</li>
+                    <li>Workflow Automation</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Data & Analytics</h3>
+                <ul class="skill-list">
+                    <li>Relational Database Design</li>
+                    <li>Data Visualization</li>
+                    <li>Grant Reporting & Compliance</li>
+                    <li>Metrics Tracking</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Legal Operations</h3>
+                <ul class="skill-list">
+                    <li>Practice Management</li>
+                    <li>Immigration Law</li>
+                    <li>Criminal Defense</li>
+                    <li>Legal Compliance</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Project Management</h3>
+                <ul class="skill-list">
+                    <li>Change Management</li>
+                    <li>User Experience Design</li>
+                    <li>Process Optimization</li>
+                    <li>Stakeholder Communication</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2 class="section-title">About Me</h2>
+        
+        <div class="about-content">
+            <p>
+                I'm an Immigration Resentencing Resource Attorney who discovered that the intersection of law and technology is where real impact happens.
+            </p>
+            <p>
+                When I couldn't find practice management tools that fit our needs, I built my own—transforming chaos into clarity using no-code solutions. What started as a personal frustration became a mission: making legal operations more efficient, data-driven, and compliant.
+            </p>
+            <p>
+                I'm passionate about solving complex problems, whether it's helping clients navigate immigration law or designing systems that make legal practices run smoothly. I thrive on building things that work, learning new tools, and finding creative solutions to real-world challenges.
+            </p>
+            <p>
+                Currently exploring opportunities in <strong>legal operations</strong> and <strong>privacy tech</strong> where I can combine my legal background with technical problem-solving.
+            </p>
+            
+            <div class="interests">
+                <span class="interest-tag">Legal Tech</span>
+                <span class="interest-tag">Privacy & Compliance</span>
+                <span class="interest-tag">Data Systems</span>
+                <span class="interest-tag">Process Automation</span>
+                <span class="interest-tag">Product Thinking</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">Interested in legal operations, privacy tech, or just want to chat? Reach out!</p>
+        
+        <div style="text-align: center;">
+            <a href="mailto:your.email@example.com" class="btn btn-primary" style="margin: 10px;">Email Me</a>
+            <a href="https://linkedin.com/in/yourprofile" class="btn btn-secondary" style="margin: 10px;">LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+            <a href="https://github.com/yourusername">GitHub</a>
+            <a href="mailto:your.email@example.com">Email</a>
+        </div>
+        <p>&copy; 2025 Your Name. Built with curiosity and determination.</p>
+    </footer>
+</body>
+</html>
